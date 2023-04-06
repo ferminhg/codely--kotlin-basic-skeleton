@@ -1,7 +1,9 @@
 package com.codely.demo
 
+const val WELCOME_MESSAGE = "Welcome to kotlin skeleton!!!"
+
 class Codelyber {
-    fun greet() = "Welcome to kotlin skeleton!!!"
+    fun greet() = WELCOME_MESSAGE
 }
 
 fun main() {

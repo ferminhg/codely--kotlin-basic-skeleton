@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 class CodelyberTest {
     @Test
     fun `it should greet successfully`() {
-        val expectedGreet = "Welcome to kotlin skeleton!!!"
+        val expectedGreet = WELCOME_MESSAGE
         assertEquals(expectedGreet, Codelyber().greet())
     }
 }
