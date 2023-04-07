@@ -23,16 +23,22 @@ fun playingWithNulls() {
 }
 fun main() {
     println("Please enter a date in the format <yyyy-mm-dd>:")
-    val line = supportNullableString(readLine())
-    if (line == null) {
-        println("You didn't enter a date")
-        exitProcess(1)
+    supportNullableString(readlnOrNull()).takeUnless {
+        it.isNullOrEmpty() || it.isBlank()
+    }?.let {
+        LocalDate.parse(it)
+    }.also {
+        if (it == null) {
+            println("You entered an invalid date")
+            exitProcess(1)
+        }
+    }?.also {
+        println("You entered: $it")
+    }.run {
+        with(Period.between(this, LocalDate.now())) {
+            println("The difference: ${this.years} years")
+        }
     }
-    val date = LocalDate.parse(line)
-    println("You entered: $date")
-    val currentDate = LocalDate.now()
-    val difference = Period.between(date, currentDate)
-    println("The difference: ${difference.years} years")
 }
 
 fun supportNullableString(line: String?) = line
