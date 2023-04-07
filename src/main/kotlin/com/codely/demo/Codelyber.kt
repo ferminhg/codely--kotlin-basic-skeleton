@@ -8,7 +8,7 @@ class Codelyber {
     fun greet() = WELCOME_MESSAGE
 }
 
-fun main() {
+fun playingWithNulls() {
     println("Please enter a date in the format <yyyy-mm-dd>:")
     val enteredDate: String? = null
 //    val date = LocalDate.parse(enteredDate ?: "1982-11-21")
@@ -18,4 +18,6 @@ fun main() {
         val date = LocalDate.parse(it)
         println("The date you entered is: $date and the day of the week is: ${date.dayOfWeek}")
     }
+}
+fun main() {
 }
