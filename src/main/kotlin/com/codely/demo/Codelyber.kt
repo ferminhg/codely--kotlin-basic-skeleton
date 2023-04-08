@@ -21,7 +21,7 @@ fun playingWithNulls() {
         println("The date you entered is: $date and the day of the week is: ${date.dayOfWeek}")
     }
 }
-fun main() {
+fun playingWithScopeFunctions() {
     println("Please enter a date in the format <yyyy-mm-dd>:")
     supportNullableString(readlnOrNull()).takeUnless {
         it.isNullOrEmpty() || it.isBlank()
@@ -41,7 +41,6 @@ fun main() {
 
 fun supportNullableString(line: String?) = line
 
-// Modifica la app para devolver un mensaje diferente si la fecha introducida es de hace 18 años o más
 private fun LocalDate.calculateDifference() = with(Period.between(this, LocalDate.now())) {
     when {
         years > 18 -> println("You are an adult: $years years")
@@ -50,4 +49,8 @@ private fun LocalDate.calculateDifference() = with(Period.between(this, LocalDat
         days > 0 -> println("The difference: $days days")
         else -> println("The difference: 0")
     }
+}
+
+fun main() {
+    App(Reader(), Writer(), Clock()).execute()
 }
