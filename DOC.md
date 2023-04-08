@@ -111,6 +111,6 @@ fun example() {
     Random.nextInt().also {
         //it representa el int aleatorio que acabamos de generar
         println("El numero aleatorio generado es: $it")
-    } //aquí seguimos teniendo el int aleatorio
+    } //aquí seguimos teniendo el int aleatorio********
 }
 ```

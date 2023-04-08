@@ -34,11 +34,20 @@ fun main() {
         }
     }?.also {
         println("You entered: $it")
-    }.run {
-        with(Period.between(this, LocalDate.now())) {
-            println("The difference: ${this.years} years")
-        }
+    }?.run {
+        calculateDifference()
     }
 }
 
 fun supportNullableString(line: String?) = line
+
+// Modifica la app para devolver un mensaje diferente si la fecha introducida es de hace 18 años o más
+private fun LocalDate.calculateDifference() = with(Period.between(this, LocalDate.now())) {
+    when {
+        years > 18 -> println("You are an adult: $years years")
+        years > 0 -> println("The difference: $years years")
+        months > 0 -> println("The difference: $months months")
+        days > 0 -> println("The difference: $days days")
+        else -> println("The difference: 0")
+    }
+}
