@@ -23,6 +23,8 @@ class CatCreator(
         val vaccinated = reader.read()
         writer.write("When did your cat birth?")
         val birthDate = reader.read()
+        writer.write("Is your cat stripe?")
+        val stripes = reader.read()
 
         if (name.isNullOrBlank() || name.isNullOrEmpty() || origin.isNullOrEmpty() || origin.isNullOrBlank()) {
             throw IllegalArgumentException()
@@ -34,6 +36,7 @@ class CatCreator(
                 vaccinated = vaccinated.toBoolean(),
                 birthDate = LocalDate.parse(birthDate),
                 createdAt = clock.now(),
+                stripes = stripes.toBoolean(),
             )
             repository.save(cat)
 
