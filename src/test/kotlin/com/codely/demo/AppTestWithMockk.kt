@@ -21,6 +21,7 @@ class AppTestWithMockk {
 
         verify { writer.write("The difference between the date you wrote an today is 2 months") }
     }
+
     @Test
     fun `should calculate the difference and return 31 years`() {
         val reader = mockk<Reader>()
