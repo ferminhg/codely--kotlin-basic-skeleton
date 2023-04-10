@@ -25,8 +25,10 @@ class CatCreator(
         val birthDate = reader.read()
         writer.write("Is your cat stripe?")
         val stripes = reader.read()
+        writer.write("Please enter your cat eye color")
+        val eyeColor = reader.read()
 
-        if (name.isNullOrBlank() || name.isNullOrEmpty() || origin.isNullOrEmpty() || origin.isNullOrBlank()) {
+        if (name.isNullOrBlank() || name.isEmpty() || origin.isNullOrEmpty() || origin.isBlank() || eyeColor.isNullOrBlank()) {
             throw IllegalArgumentException()
         } else {
             val cat = Cat(
@@ -37,6 +39,7 @@ class CatCreator(
                 birthDate = LocalDate.parse(birthDate),
                 createdAt = clock.now(),
                 stripes = stripes.toBoolean(),
+                eyeColor = Cat.EyeColor.valueOf(eyeColor.uppercase()),
             )
             repository.save(cat)
 

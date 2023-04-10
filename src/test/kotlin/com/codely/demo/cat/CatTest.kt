@@ -12,6 +12,7 @@ class CatTest {
     private val birthDate = "2019-01-01"
     private val fixedDate = LocalDate.of(2021, 8, 31)
     private val stripes = true
+    private val eyeColor = Cat.EyeColor.BLACK
 
     @Test
     fun `should create a vaccinated cat`() {
@@ -22,6 +23,7 @@ class CatTest {
             birthDate = LocalDate.parse(birthDate),
             createdAt = fixedDate,
             stripes = stripes,
+            eyeColor = eyeColor,
         )
         val expectedCat = Cat(
             id = UUID.fromString(id),
@@ -31,6 +33,7 @@ class CatTest {
             birthDate = LocalDate.parse(birthDate),
             createdAt = fixedDate,
             stripes = stripes,
+            eyeColor = eyeColor,
         )
 
         assertEquals(expectedCat, actualCat)
@@ -45,6 +48,7 @@ class CatTest {
             birthDate = LocalDate.parse(birthDate),
             createdAt = fixedDate,
             stripes = stripes,
+            eyeColor = eyeColor,
         )
         val expectedCat = Cat(
             id = UUID.fromString(id),
@@ -54,6 +58,7 @@ class CatTest {
             birthDate = LocalDate.parse(birthDate),
             createdAt = fixedDate,
             stripes = stripes,
+            eyeColor = eyeColor,
         )
 
         assertEquals(expectedCat, actualCat)

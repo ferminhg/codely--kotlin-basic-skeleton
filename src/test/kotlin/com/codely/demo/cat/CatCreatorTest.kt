@@ -8,7 +8,7 @@ import io.mockk.mockk
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.time.LocalDate
-import java.util.UUID
+import java.util.*
 import kotlin.test.assertEquals
 
 internal class CatCreatorTest {
@@ -19,6 +19,7 @@ internal class CatCreatorTest {
     private val birthDate = "2019-01-01"
     private val fixedDate = LocalDate.of(2021, 8, 31)
     private val stripes = "true"
+    private val eyeColor = "black"
 
     @Test
     fun `should create a cat`() {
@@ -27,7 +28,7 @@ internal class CatCreatorTest {
         val clock = mockk<Clock>()
         val repository = InMemoryCatRepository()
         every { clock.now() } returns fixedDate
-        every { reader.read() } returns id andThen name andThen origin andThen vaccinated andThen birthDate andThen stripes
+        every { reader.read() } returns id andThen name andThen origin andThen vaccinated andThen birthDate andThen stripes andThen eyeColor
 
         val creator = CatCreator(reader, writer, clock, repository)
         creator.create()
@@ -40,6 +41,7 @@ internal class CatCreatorTest {
             LocalDate.parse(birthDate),
             fixedDate,
             stripes.toBoolean(),
+            Cat.EyeColor.valueOf(eyeColor.uppercase()),
         )
 
         assertEquals(

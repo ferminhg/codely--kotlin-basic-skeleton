@@ -11,7 +11,11 @@ data class Cat(
     val birthDate: LocalDate,
     val createdAt: LocalDate,
     val stripes: Boolean,
+    val eyeColor: EyeColor,
 ) {
+    enum class EyeColor {
+        BLUE, GREEN, BROWN, BLACK
+    }
     companion object {
         fun vaccinatedWith(
             id: UUID,
@@ -20,6 +24,7 @@ data class Cat(
             birthDate: LocalDate,
             createdAt: LocalDate,
             stripes: Boolean,
+            eyeColor: EyeColor
         ) = Cat(
             id = id,
             name = name,
@@ -28,6 +33,7 @@ data class Cat(
             birthDate = birthDate,
             createdAt = createdAt,
             stripes = stripes,
+            eyeColor = eyeColor,
         )
 
         fun notVaccinatedWith(
@@ -36,7 +42,8 @@ data class Cat(
             origin: String,
             birthDate: LocalDate,
             createdAt: LocalDate,
-            stripes: Boolean
+            stripes: Boolean,
+            eyeColor: EyeColor,
         ) = Cat(
             id = id,
             name = name,
@@ -45,6 +52,7 @@ data class Cat(
             birthDate = birthDate,
             createdAt = createdAt,
             stripes = stripes,
+            eyeColor = eyeColor,
         )
     }
 }
